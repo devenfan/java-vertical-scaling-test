@@ -27,15 +27,26 @@ public class Main {
         }
 
         Monitor monitor = new Monitor();
-        LoadTest loadTest = new LoadTest(mode, sleep, recycleSleep);
+        BaseLoadTest loadTest = null;
+        switch (mode) {
+            case 1:
+                loadTest = new BigObjectLoadTest(false, sleep, recycleSleep);
+                break;
+            case 2:
+                loadTest = new SmallObjectLoadTest(false, sleep, recycleSleep);
+                break;
+            default:
+                loadTest = new SmallObjectLoadTest((mode % 2 == 0), sleep, recycleSleep);
+                break;
+        }
 
         new Thread(monitor).start();
         new Thread(loadTest).start();
 
-        int max = 10;
+        int max = 120;
         int i = 0;
         while (i++ < max) {
-            Thread.sleep(6 * 1000);
+            Thread.sleep(1000);
         }
         monitor.kill();
         loadTest.kill();
