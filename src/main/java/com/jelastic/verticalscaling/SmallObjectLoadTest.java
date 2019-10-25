@@ -20,7 +20,7 @@ public class SmallObjectLoadTest extends BaseLoadTest {
         this.explictRecycle = explictRecycle;
         this.sleep = sleep;
         this.recycleSleep = recycleSleep;
-        this.loadTimes = (int)(512 * 1024 / loadFactor);
+        this.loadTimes = (int)(512 * 1024 * loadFactor);
         this.loadFactor = loadFactor;
     }
 

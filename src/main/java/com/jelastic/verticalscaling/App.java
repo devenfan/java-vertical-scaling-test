@@ -16,7 +16,7 @@ public class App {
         int sleep = 10;
         int mode = 1;
         int recycleSleep = 1000;
-        double loadFactor = 1.1;
+        double loadFactor = 0.95;
         if (args.length > 0) {
             sleep = Integer.parseInt(args[0]);
         }

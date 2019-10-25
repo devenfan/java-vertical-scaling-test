@@ -20,7 +20,7 @@ public class BigObjectLoadTest extends BaseLoadTest {
         this.explictRecycle = explictRecycle;
         this.sleep = sleep;
         this.recycleSleep = recycleSleep;
-        this.loadTimes = (int)(512 / loadFactor);
+        this.loadTimes = (int)(512 * loadFactor);
         this.loadFactor = loadFactor;
     }
 

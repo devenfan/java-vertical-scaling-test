@@ -42,7 +42,7 @@ public abstract class BaseLoadTest implements Runnable {
 
         long start = System.currentTimeMillis();
         isRunning = true;
-        println("Begin, explictRecycle is " + explictRecycle + ", sleep interval is " + sleep + ", recycle sleep is " + recycleSleep + ", factor is " + loadFactor);
+        println("Begin, explictRecycle is " + explictRecycle + ", sleep interval is " + sleep + ", recycle sleep is " + recycleSleep + ", loadFactor is " + loadFactor);
 
         while (!isKilled) {
             try {

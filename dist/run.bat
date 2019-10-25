@@ -15,13 +15,16 @@ rem set JAVA_OPTS1= -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:G1ReservePercent=2
 rem set JAVA_OPTS1= -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:G1HeapRegionSize=2M -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:app_g1_gc.log
 set JAVA_OPTS1= -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:G1HeapRegionSize=8M -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:app_g1_gc.log
 
+rem Other
 set JAVA_OPTS3= -XX:-UseGCOverheadLimit -XX:-OmitStackTraceInFastThrow
 
-set JMX_OPTS= -Dcom.sun.management.jmxremote -Djava.rmi.server.hostname=127.0.0.1 -Dcom.sun.management.jmxremote.port=8787 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
+rem JMX
+set JMX_OPTS= -Dcom.sun.management.jmxremote  -Dcom.sun.management.jmxremote.port=8787 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
+rem -Djava.rmi.server.hostname=127.0.0.1
 
 set JAVA_OPTS=%JAVA_OPTS0% %JAVA_OPTS1% %JAVA_OPTS2% %JAVA_OPTS3% %JAVA_OPTS4% %JAVA_OPTS5% %JMX_OPTS%
 
 echo JAVA_OPTS: %JAVA_OPTS%
 
-    java %JAVA_OPTS% -jar app.jar   0   1   0   1.15
-rem java %JAVA_OPTS% -jar app.jar   0   2   0   1.01
+    java %JAVA_OPTS% -jar app.jar   0   1   0   0.95
+rem java %JAVA_OPTS% -jar app.jar   0   2   0   0.95
