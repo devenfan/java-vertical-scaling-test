@@ -2,8 +2,8 @@ FROM openjdk:13-jdk-alpine
 
 RUN mkdir -p /opt/work/app
 WORKDIR /opt/work/app
-add dist/app.jar /opt/work/app
-add dist/run_java13.sh  /opt/work/app
+ADD dist/app.jar /opt/work/app
+ADD dist/run_java13.sh  /opt/work/app
 
 #RUN ${JAVA_HOME}/bin/jlink --add-modules java.desktop --output ${JAVA_HOME}/jre
 #ENV JRE_HOME ${JAVA_HOME}/jre

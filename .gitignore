@@ -1,4 +1,10 @@
-idea
+.idea
+.settings
+.classpath
+.project
+
 out
+target
 dist/*.log
 dist/*.zip
+
