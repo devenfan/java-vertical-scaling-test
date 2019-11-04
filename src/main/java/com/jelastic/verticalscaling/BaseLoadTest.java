@@ -25,11 +25,11 @@ public abstract class BaseLoadTest implements Runnable {
     public BaseLoadTest() {
     }
 
-    public BaseLoadTest(boolean explictRecycle, int sleep, int recycleSleep, int loadTimes, double loadFactor) {
+    public BaseLoadTest(boolean explictRecycle, int sleep, int recycleSleep, int maxMemoryByMB, double loadFactor) {
         this.explictRecycle = explictRecycle;
         this.sleep = sleep;
         this.recycleSleep = recycleSleep;
-        this.loadTimes = loadTimes;
+        this.loadTimes = maxMemoryByMB;
         this.loadFactor = loadFactor;
     }
 

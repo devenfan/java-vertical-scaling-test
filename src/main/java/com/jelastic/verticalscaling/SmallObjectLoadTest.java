@@ -15,12 +15,12 @@ public class SmallObjectLoadTest extends BaseLoadTest {
 
     private int numCycles = 10;
 
-    public SmallObjectLoadTest(boolean explictRecycle, int sleep, int recycleSleep, double loadFactor) {
+    public SmallObjectLoadTest(boolean explictRecycle, int sleep, int recycleSleep, int maxMemoryByMB, double loadFactor) {
         this.name = getClass().getSimpleName();
         this.explictRecycle = explictRecycle;
         this.sleep = sleep;
         this.recycleSleep = recycleSleep;
-        this.loadTimes = (int)(512 * 1024 * loadFactor);
+        this.loadTimes = (int)(maxMemoryByMB * (SIZE_1M / SIZE_1K) * loadFactor);
         this.loadFactor = loadFactor;
     }
 
@@ -54,7 +54,7 @@ public class SmallObjectLoadTest extends BaseLoadTest {
         for (int k = 0; k < numCycles; k++) {
             List list = new LinkedList();
             for (int i = 0; i < n; i++) {
-                byte[] arr = new byte[SIZE_1M + SIZE_1K];
+                byte[] arr = new byte[SIZE_1K];
                 list.add(arr);
                 for (int r = 0; r < OBJ_CONTAINER_SIZE; r++) {
                     objectContainer[r] = arr;

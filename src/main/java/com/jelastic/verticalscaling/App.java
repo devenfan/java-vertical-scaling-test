@@ -16,7 +16,9 @@ public class App {
         int sleep = 10;
         int mode = 1;
         int recycleSleep = 1000;
+        int maxMemoryByMB = 512;
         double loadFactor = 0.95;
+
         if (args.length > 0) {
             sleep = Integer.parseInt(args[0]);
         }
@@ -27,20 +29,23 @@ public class App {
             recycleSleep = Integer.parseInt(args[2]);
         }
         if (args.length > 3) {
-            loadFactor = Double.parseDouble(args[3]);
+            maxMemoryByMB = Integer.parseInt(args[3]);
+        }
+        if (args.length > 4) {
+            loadFactor = Double.parseDouble(args[4]);
         }
 
         Monitor monitor = new Monitor();
         BaseLoadTest loadTest = null;
         switch (mode) {
             case 1:
-                loadTest = new BigObjectLoadTest(false, sleep, recycleSleep, loadFactor);
+                loadTest = new BigObjectLoadTest(false, sleep, recycleSleep, maxMemoryByMB, loadFactor);
                 break;
             case 2:
-                loadTest = new SmallObjectLoadTest(false, sleep, recycleSleep, loadFactor);
+                loadTest = new SmallObjectLoadTest(false, sleep, recycleSleep, maxMemoryByMB, loadFactor);
                 break;
             default:
-                loadTest = new SmallObjectLoadTest((mode % 2 == 0), sleep, recycleSleep, loadFactor);
+                loadTest = new SmallObjectLoadTest((mode % 2 == 0), sleep, recycleSleep, maxMemoryByMB, loadFactor);
                 break;
         }
 

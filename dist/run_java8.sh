@@ -1,6 +1,6 @@
 #!/bin/sh
 
-JAVA_OPTS0=" -Xms512m -Xmx512m -XX:MaxDirectMemorySize=32m -XX:MetaspaceSize=32m -XX:MaxMetaspaceSize=64m -XX:+PrintFlagsFinal -XX:+PrintCommandLineFlags -XX:+UnlockExperimentalVMOptions "
+JAVA_OPTS0=" -Xms2048m -Xmx2048m -XX:MaxDirectMemorySize=64m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=64m -XX:+PrintFlagsFinal -XX:+PrintCommandLineFlags -XX:+UnlockExperimentalVMOptions "
 
 # Parallel Scavenge
 # JAVA_OPTS1=" -XX:+UseParallelGC -XX:MaxGCPauseMillis=100 -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:app_parallel_gc.log "
@@ -24,4 +24,4 @@ export JAVA_OPTS=" $JAVA_OPTS0 $JAVA_OPTS1 $JAVA_OPTS2 $JAVA_OPTS3 $JAVA_OPTS4 $
 echo "JAVA_OPTS: $JAVA_OPTS"
 
 echo "JAVA_HOME: $JAVA_HOME"
-$JAVA_HOME/bin/java $JAVA_OPTS -jar app.jar -1 2 -1 0.90
+$JAVA_HOME/bin/java $JAVA_OPTS -jar app.jar -1 2 -1 2048 0.90

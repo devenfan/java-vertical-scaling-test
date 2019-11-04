@@ -15,12 +15,12 @@ public class BigObjectLoadTest extends BaseLoadTest {
 
     private int numCycles = 10;
 
-    public BigObjectLoadTest(boolean explictRecycle, int sleep, int recycleSleep, double loadFactor) {
+    public BigObjectLoadTest(boolean explictRecycle, int sleep, int recycleSleep, int maxMemoryByMB, double loadFactor) {
         this.name = getClass().getSimpleName();
         this.explictRecycle = explictRecycle;
         this.sleep = sleep;
         this.recycleSleep = recycleSleep;
-        this.loadTimes = (int)(512 * loadFactor);
+        this.loadTimes = (int)(maxMemoryByMB * loadFactor);
         this.loadFactor = loadFactor;
     }
 

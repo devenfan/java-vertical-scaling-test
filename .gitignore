@@ -2,9 +2,13 @@
 .settings
 .classpath
 .project
+.vscode
 
 out
 target
+
+dist/logs
+dist/logs/*
 dist/*.log
 dist/*.zip
 
